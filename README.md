@@ -290,4 +290,4 @@ Main focus:
 
 GitHub: [subhaaniii](https://github.com/subhaaniii)
 
-I am currently preparing for fully funded PhD applications in Computer Science, with a focus on multimodal learning, retrieval systems, medical AI, and trustworthy model evaluation.
+My goal is to pursue PhD-level research in multimodal learning, medical AI, and model evaluation, with a focus on building reliable and interpretable retrieval systems.
