@@ -85,7 +85,7 @@ Related project:
 
 ## Portfolio Map
 
-| Research Theme | Project | Main Question | Methods / Tools | Evaluation |
+| Theme | Project | Main Question | Methods | Evaluation |
 |---|---|---|---|---|
 | Multimodal image-text retrieval | [CXR-Text Bridge Retrieval](https://github.com/subhaaniii/cxr-text-bridge-retrieval) | Can contrastive learning align chest X-ray images and text reports? | Dual encoder, contrastive learning, retrieval evaluation | Recall@K, Lift@K, positive-pair similarity |
 | Tabular-medical retrieval | [FT-Transformer EHR Retrieval](https://github.com/subhaaniii/ft-transformer-ehr-retrieval) | Does a transformer-style tabular encoder improve retrieval alignment? | FT-Transformer-style encoder, MLP baseline, synthetic EHR setup | Recall@K, Lift@K, sample-size analysis |
