@@ -288,6 +288,6 @@ Main focus:
 
 ## Contact
 
-GitHub: [subhaaniii](https://github.com/subhaaniii)
+GitHub: [mahrufa-binta-ali](https://github.com/mahrufa-binta-ali)
 
 My goal is to pursue PhD-level research in multimodal learning, medical AI, and model evaluation, with a focus on building reliable and interpretable retrieval systems.
