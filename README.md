@@ -36,7 +36,7 @@ flowchart TD
     A --> B[Healthcare AI Evaluation]
     A --> C[Multimodal Representation Learning]
     A --> D[Contrastive Learning Failure Modes]
-    A --> E[Embedding & Retrieval Diagnostics]
+    A --> E[Embedding and Retrieval Diagnostics]
 
     B --> B1[Clinical RAG Evaluation]
     B --> B2[CXR-Text Retrieval]
@@ -49,7 +49,7 @@ flowchart TD
     D --> D2[DANN under Distribution Shift]
 
     E --> E1[Spectral Geometry Analysis]
-    E --> E2[Recall@K / Lift@K / MRR / Similarity Diagnostics]
+    E --> E2[Recall-at-K, Lift-at-K, MRR, Similarity Diagnostics]
 ```
 
 ---
