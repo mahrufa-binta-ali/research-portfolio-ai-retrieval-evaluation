@@ -1,293 +1,139 @@
-# Research Portfolio: AI Retrieval, Multimodal Learning, and Model Evaluation
+# Research Portfolio: Healthcare AI Evaluation, Multimodal Learning, and Retrieval
 
-I am a prospective PhD applicant in Computer Science interested in multimodal learning, retrieval systems, representation learning, contrastive learning, and evaluation of model behavior.
+I am a prospective PhD applicant in Computer Science interested in **healthcare AI evaluation, multimodal representation learning, contrastive learning, retrieval systems, and model failure analysis**.
 
-This repository connects my research-oriented GitHub projects into one clear portfolio. The goal is to show not only what I built, but also what research questions I explored, what experiments I ran, what metrics I measured, and what I learned from the results.
+My current work is organized around a central question:
 
----
+> **When does a strong quantitative result actually indicate that an AI system has learned something reliable?**
 
-## Research Direction
-
-My current work focuses on one broad question:
-
-> How can we build and evaluate AI systems that learn meaningful alignment across different types of data?
-
-I explore this through controlled experiments on:
-
-- multimodal retrieval
-- contrastive learning
-- false negatives in representation learning
-- noisy and weakly matched pairs
-- tabular and medical-data representation learning
-- embedding-space geometry
-- evaluation beyond simple accuracy
+Rather than treating training loss or a single benchmark score as sufficient evidence, I use controlled experiments to study retrieval quality, supervision quality, semantic false negatives, distribution difficulty, and evidence traceability.
 
 ---
 
-## Main Research Questions
+## Selected Research Projects
 
-### 1. Multimodal Alignment
+### 1. Clinical RAG Evaluation Framework
 
-How do models learn shared representations between different data types such as images, text, and tabular clinical features?
+**Repository:** [clinical-rag-evaluation-framework](https://github.com/mahrufa-binta-ali/clinical-rag-evaluation-framework)
 
-Related projects:
+An evidence-first retrieval evaluation framework for clinical RAG pipelines. The project deliberately evaluates retrieval and source traceability before adding answer generation.
 
-- [CXR-Text Bridge Retrieval](https://github.com/subhaaniii/cxr-text-bridge-retrieval)
-- [FT-Transformer EHR Retrieval](https://github.com/subhaaniii/ft-transformer-ehr-retrieval)
+**Methods and evaluation:**
 
----
+- Sentence-transformer embeddings
+- Token-aware document chunking
+- ChromaDB vector retrieval
+- Optional cross-encoder reranking
+- Source Recall@K and MRR
+- Keyword hit rate
+- Evidence Phrase Recall@K
+- Embedding-model comparison
+- Reproducible tests and Docker/FastAPI deployment
 
-### 2. Pair Quality and Weak Supervision
-
-How does the quality of positive pairs affect contrastive retrieval performance?
-
-In many real-world settings, perfectly matched pairs are expensive or unavailable. I study how pseudo-pairs, noisy pairs, and weak matching strategies affect retrieval behavior.
-
-Related project:
-
-- [Propensity Matching for Multimodal Pairs](https://github.com/subhaaniii/propensity-matching-multimodal-pairs)
-
----
-
-### 3. False Negatives in Contrastive Learning
-
-What happens when contrastive learning treats semantically similar samples as negatives?
-
-This question is important because false negatives can damage representation quality, especially in medical, tabular, and multimodal datasets where similarity is not always obvious from labels.
-
-Related project:
-
-- [False-Negative-Aware Contrastive Learning](https://github.com/subhaaniii/fn-aware-contrastive-learning)
+The current benchmark is intentionally small and uses public/synthetic material; it should be interpreted as a retrieval-evaluation prototype rather than a clinical benchmark.
 
 ---
 
-### 4. Embedding Geometry and Model Diagnostics
+### 2. CXR-Text Bridge Retrieval
 
-Can embedding-space geometry reveal failures that retrieval metrics alone may hide?
+**Repository:** [cxr-text-bridge-retrieval](https://github.com/mahrufa-binta-ali/cxr-text-bridge-retrieval)
 
-I study whether model embeddings are well-structured, collapsed, noisy, over-separated, or distorted using spectral and geometric diagnostics.
+A controlled multimodal study of when image-text contrastive alignment forms, weakens, or collapses.
 
-Related project:
+**Methods and evaluation:**
 
-- [Spectral Geometry Embedding Analysis](https://github.com/subhaaniii/spectral-geometry-embedding-analysis)
+- Dual-encoder architecture
+- L2-normalized shared embedding space
+- Symmetric InfoNCE
+- Bidirectional retrieval evaluation
+- Recall@K and Lift@K
+- Positive-pair similarity
+- Controlled easy, shifted, and noisy conditions
+- GPU experiments with mixed precision
 
----
-
-### 5. Applied AI System Building
-
-Alongside research experiments, I also build applied AI systems to strengthen my software engineering ability and end-to-end product thinking.
-
-Related project:
-
-- [Sumora](https://github.com/subhaaniii/sumora)
-
----
-
-## Portfolio Map
-
-| Theme | Project | Main Question | Methods | Evaluation |
-|---|---|---|---|---|
-| Multimodal image-text retrieval | [CXR-Text Bridge Retrieval](https://github.com/subhaaniii/cxr-text-bridge-retrieval) | Can contrastive learning align chest X-ray images and text reports? | Dual encoder, contrastive learning, retrieval evaluation | Recall@K, Lift@K, positive-pair similarity |
-| Tabular-medical retrieval | [FT-Transformer EHR Retrieval](https://github.com/subhaaniii/ft-transformer-ehr-retrieval) | Does a transformer-style tabular encoder improve retrieval alignment? | FT-Transformer-style encoder, MLP baseline, synthetic EHR setup | Recall@K, Lift@K, sample-size analysis |
-| Weak pair construction | [Propensity Matching for Multimodal Pairs](https://github.com/subhaaniii/propensity-matching-multimodal-pairs) | How does pair quality affect contrastive retrieval? | Propensity matching, pseudo-pairs, noisy pairs | Pair precision, group precision, Recall@K, Lift@K |
-| Contrastive learning failure modes | [False-Negative-Aware Contrastive Learning](https://github.com/subhaaniii/fn-aware-contrastive-learning) | How do false negatives affect representation learning? | Contrastive loss variants, controlled experiments | Retrieval metrics, similarity behavior |
-| Embedding diagnostics | [Spectral Geometry Embedding Analysis](https://github.com/subhaaniii/spectral-geometry-embedding-analysis) | Can geometry reveal hidden representation failures? | Spectral analysis, embedding visualization, diagnostic metrics | Geometry metrics, failure-mode analysis |
-| Applied AI system | [Sumora](https://github.com/subhaaniii/sumora) | Can I build a usable AI-assisted movie discovery platform? | Next.js, TypeScript, TMDB, OMDb, chatbot interface | Product functionality, search quality, UI behavior |
+The current benchmark uses synthetic CXR-like images and report-style embeddings. It is an alignment-behavior study, not a clinical-performance claim.
 
 ---
 
-## Skills Demonstrated
+### 3. False-Negative-Aware Contrastive Learning
 
-### Research Skills
+**Repository:** [fn-aware-contrastive-learning](https://github.com/mahrufa-binta-ali/fn-aware-contrastive-learning)
 
-- Formulating research questions
-- Designing controlled experiments
-- Comparing baselines
-- Running ablation-style studies
-- Evaluating retrieval systems
-- Analyzing model failure modes
-- Writing research-style documentation
-- Connecting experiments to broader research problems
+A controlled study of how semantic false negatives affect contrastive retrieval and how downweighting same-cluster negatives changes model behavior.
 
-### Machine Learning Skills
+**Methods and evaluation:**
 
-- Contrastive learning
-- Dual-encoder retrieval
-- Multimodal representation learning
-- Tabular representation learning
-- Embedding-space analysis
-- Evaluation with Recall@K and Lift@K
-- Synthetic data generation for controlled experiments
-- Medical AI experimentation
+- Standard symmetric InfoNCE
+- False-negative-aware weighted InfoNCE
+- Clean, clustered, and noisy-pair conditions
+- Multiple dataset sizes and weighting strengths
+- Recall@K and Lift@K
+- Positive-pair, same-cluster-negative, and different-cluster-negative similarity
 
-### Engineering Skills
-
-- Python
-- PyTorch
-- NumPy
-- Pandas
-- Scikit-learn
-- Matplotlib
-- Next.js
-- TypeScript
-- Git and GitHub
-- Reproducible experiment organization
+The results are deliberately reported as mixed rather than as a universal improvement: the false-negative-aware objective helps some top-rank metrics in specific clustered settings but is not consistently better across all conditions.
 
 ---
 
-## How These Projects Connect
+### 4. Spectral Geometry Embedding Analysis
 
-These projects are not separate random repositories. They form one connected research direction.
+**Repository:** [spectral-geometry-embedding-analysis](https://github.com/mahrufa-binta-ali/spectral-geometry-embedding-analysis)
 
-The central idea is:
-
-> Retrieval models can look successful from one metric but still fail because of noisy pairs, weak supervision, false negatives, poor architecture choice, or distorted embedding geometry.
-
-My portfolio studies this problem from different angles:
-
-1. **Data pairing**  
-   How reliable are the positive pairs used for training?
-
-2. **Model architecture**  
-   Does the encoder architecture improve alignment?
-
-3. **Loss behavior**  
-   How does contrastive learning behave when negatives are imperfect?
-
-4. **Evaluation**  
-   Are Recall@K and Lift@K enough, or do we need deeper diagnostics?
-
-5. **Geometry**  
-   What does the learned embedding space actually look like?
-
-Together, these experiments help me build a stronger foundation for future PhD research in multimodal learning, medical AI, and trustworthy model evaluation.
+A diagnostic project for studying representation structure beyond aggregate retrieval metrics, including neighborhood preservation, clustering behavior, spectral structure, and failure patterns in embedding spaces.
 
 ---
 
-## Current Research Interests
+### 5. FT-Transformer EHR Retrieval
 
-I am especially interested in:
+**Repository:** [ft-transformer-ehr-retrieval](https://github.com/mahrufa-binta-ali/ft-transformer-ehr-retrieval)
 
-- multimodal learning
-- medical AI
-- contrastive representation learning
-- retrieval systems
-- weak supervision
-- noisy labels and noisy pairs
-- embedding-space diagnostics
-- trustworthy AI evaluation
-- AI for healthcare and scientific data
+A controlled tabular/EHR-style representation-learning benchmark comparing transformer-style and simpler encoders for retrieval alignment.
 
 ---
 
-## Future Work
+## Research Themes
 
-My next planned improvements are:
+### Rigorous Evaluation
 
-- Apply the retrieval pipeline to a real public multimodal dataset
-- Add stronger baselines and ablation studies
-- Compare different contrastive loss variants
-- Add more visualization of embedding spaces
-- Improve reproducibility with fixed experiment scripts
-- Write paper-style reports for the strongest projects
-- Study uncertainty, robustness, and failure detection in multimodal retrieval
+I am interested in whether an evaluation protocol measures the capability it claims to measure. This includes distinguishing optimization success from retrieval success, checking evidence-level behavior rather than only source-level success, and identifying when aggregate metrics hide failure cases.
 
----
+### Multimodal Representation Learning
 
-## Selected Projects
+I study shared representation spaces across image, text, and structured/tabular modalities, with particular interest in healthcare-oriented settings.
 
-### 1. CXR-Text Bridge Retrieval
+### Contrastive Learning Failure Modes
 
-Repository: [cxr-text-bridge-retrieval](https://github.com/subhaaniii/cxr-text-bridge-retrieval)
+My experiments examine semantic false negatives, noisy supervision, weak pairing, and how loss design interacts with data structure.
 
-This project studies image-text retrieval using chest X-ray images and associated text representations. It uses contrastive learning to test whether a model can learn a shared embedding space between visual and textual medical information.
+### Reliability Under Shift and Noise
 
-Main focus:
-
-- multimodal retrieval
-- image-text alignment
-- contrastive learning
-- Recall@K and Lift@K evaluation
+I use controlled synthetic experiments to isolate failure modes before making claims on real-world data. These studies are framed as method-behavior analyses, not as clinical validation.
 
 ---
 
-### 2. FT-Transformer EHR Retrieval
+## Technical Toolkit
 
-Repository: [ft-transformer-ehr-retrieval](https://github.com/subhaaniii/ft-transformer-ehr-retrieval)
-
-This project studies whether a transformer-style tabular encoder can improve retrieval alignment compared with simpler baselines.
-
-Main focus:
-
-- tabular representation learning
-- EHR-style synthetic data
-- FT-Transformer-style encoder
-- model comparison
+**Programming and ML:** Python, PyTorch, Scikit-learn, NumPy, Pandas  
+**Methods:** Contrastive learning, dual encoders, multimodal retrieval, tabular representation learning, embedding diagnostics  
+**Evaluation:** Recall@K, Lift@K, MRR, evidence-level retrieval metrics, similarity diagnostics, controlled ablations  
+**Engineering:** Git/GitHub, FastAPI, Docker, Hugging Face Spaces, reproducible experiment organization
 
 ---
 
-### 3. Propensity Matching for Multimodal Pairs
+## Research Approach
 
-Repository: [propensity-matching-multimodal-pairs](https://github.com/subhaaniii/propensity-matching-multimodal-pairs)
+Across these projects I try to follow the same workflow:
 
-This project studies how pseudo-pair construction affects contrastive retrieval. It explores whether better pair matching can improve downstream retrieval behavior.
+1. Formulate a narrow research question.
+2. Define a controlled experimental setup.
+3. Establish useful baselines.
+4. Separate training objectives from evaluation metrics.
+5. Examine failure cases, not only best-case performance.
+6. State limitations explicitly and avoid clinical or real-world claims that the experiment does not support.
 
-Main focus:
-
-- weak supervision
-- pseudo-pair construction
-- noisy positive pairs
-- retrieval robustness
-
----
-
-### 4. False-Negative-Aware Contrastive Learning
-
-Repository: [fn-aware-contrastive-learning](https://github.com/subhaaniii/fn-aware-contrastive-learning)
-
-This project studies a common problem in contrastive learning: some samples treated as negatives may actually be semantically similar.
-
-Main focus:
-
-- false negatives
-- contrastive learning failure modes
-- representation quality
-- similarity analysis
+My goal is to continue developing this direction through PhD research in **healthcare AI, multimodal learning, and rigorous model evaluation**.
 
 ---
 
-### 5. Spectral Geometry Embedding Analysis
+## GitHub
 
-Repository: [spectral-geometry-embedding-analysis](https://github.com/subhaaniii/spectral-geometry-embedding-analysis)
-
-This project studies embedding-space geometry to understand whether learned representations are well-structured or distorted.
-
-Main focus:
-
-- embedding diagnostics
-- spectral analysis
-- representation geometry
-- model failure analysis
-
----
-
-### 6. Sumora
-
-Repository: [sumora](https://github.com/subhaaniii/sumora)
-
-This is an applied AI/software project: a movie discovery system with search, filtering, external APIs, and chatbot-style interaction.
-
-Main focus:
-
-- applied AI
-- full-stack development
-- search interface
-- product-oriented engineering
-
----
-
-## Contact
-
-GitHub: [mahrufa-binta-ali](https://github.com/mahrufa-binta-ali)
-
-My goal is to pursue PhD-level research in multimodal learning, medical AI, and model evaluation, with a focus on building reliable and interpretable retrieval systems.
+[github.com/mahrufa-binta-ali](https://github.com/mahrufa-binta-ali)
